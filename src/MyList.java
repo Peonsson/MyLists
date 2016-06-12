@@ -80,7 +80,15 @@ public class MyList<E> implements List, Iterable {
 
     @Override
     public Object set(int index, Object element) {
-        return null;
+
+        E oldValue = null;
+
+        if(index <= size) {
+            oldValue = elements[index];
+            elements[index] = (E) element;
+        }
+
+        return oldValue;
     }
 
     @Override
