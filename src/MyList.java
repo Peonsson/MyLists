@@ -5,6 +5,8 @@ import java.util.ListIterator;
 
 public class MyList implements List, Iterable {
 
+    private Object[] objects;
+
     public MyList() {
         System.out.println("MyList have been created");
     }
