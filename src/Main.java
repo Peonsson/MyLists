@@ -8,7 +8,6 @@ public class Main {
         MyList myList = new MyList();
         System.out.println("myList size: " + myList.size());
         myList.get(200);
-        myList.add
 
     }
 }

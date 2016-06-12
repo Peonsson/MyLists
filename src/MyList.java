@@ -73,10 +73,10 @@ public class MyList<E> implements List, Iterable {
     @Override
     public Object get(int index) {
 
-        if(index <= size)
-            return elements[index];
+        if(index > size)
+            return null; // is this correct?
 
-        return new IndexOutOfBoundsException("Index is out of bounds!");
+        return elements[index];
     }
 
     @Override
