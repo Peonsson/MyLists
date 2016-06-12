@@ -64,12 +64,12 @@ public class MyList<E> implements List, Iterable {
 
     @Override
     public boolean addAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean addAll(int index, Collection c) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -135,12 +135,12 @@ public class MyList<E> implements List, Iterable {
 
     @Override
     public boolean retainAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean removeAll(Collection c) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
