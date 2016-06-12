@@ -32,7 +32,7 @@ public class MyList<E> implements List, Iterable {
     public boolean contains(Object o) {
 
         for (int i = 0; i < size; i++) {
-            if(elements.equals(o))
+            if(elements[i].equals(o))
                 return true;
         }
         return false;
@@ -76,6 +76,8 @@ public class MyList<E> implements List, Iterable {
 
         if(index > size)
             throw new IndexOutOfBoundsException();
+        if((index < 0) || (index > size - 1))
+            return null; // is this correct?
 
         return elements[index];
     }
@@ -99,8 +101,8 @@ public class MyList<E> implements List, Iterable {
     @Override
     public void add(int index, Object element) {
 
-        if(index > size)
-            throw new IndexOutOfBoundsException();
+        if((index < 0) || (index > size - 1))
+            return;
 
         if(size == elements.length)
             doubleArraySize();

@@ -10,6 +10,8 @@ public class Main {
         myList.add(4);
         myList.add(200);
         myList.add(4);
+        System.out.println(myList.contains(200));
+        System.out.println(myList.contains(333));
         System.out.println("myList size: " + myList.size());
     }
 }
