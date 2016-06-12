@@ -1,5 +1,7 @@
 import java.util.*;
 
+import static jdk.nashorn.internal.codegen.ObjectClassGenerator.pack;
+
 public class MyList<E> implements List, Iterable {
 
     private int size;
@@ -73,13 +75,16 @@ public class MyList<E> implements List, Iterable {
     public Object get(int index) {
 
         if(index > size)
-            return null; // is this correct?
+            throw new IndexOutOfBoundsException();
 
         return elements[index];
     }
 
     @Override
     public Object set(int index, Object element) {
+
+        if(index > size)
+            throw new IndexOutOfBoundsException();
 
         E oldValue = null;
 
@@ -95,7 +100,7 @@ public class MyList<E> implements List, Iterable {
     public void add(int index, Object element) {
 
         if(index > size)
-            return;
+            throw new IndexOutOfBoundsException();
 
         if(size == elements.length)
             doubleArraySize();
@@ -105,7 +110,20 @@ public class MyList<E> implements List, Iterable {
 
     @Override
     public Object remove(int index) {
-        return null;
+
+        if(index > size)
+            throw new IndexOutOfBoundsException();
+
+        E removedValue = null;
+
+        if(index <= size) {
+            removedValue = elements[index];
+            for (int i = index; i < size - 1; i++) { // -1 so we don't get out of bounds
+                elements[i] = elements[i + 1];
+            }
+        }
+
+        return removedValue;
     }
 
     @Override
