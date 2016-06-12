@@ -1,7 +1,4 @@
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class MyList<E> implements List, Iterable {
 
@@ -44,7 +41,13 @@ public class MyList<E> implements List, Iterable {
 
     @Override
     public boolean add(Object o) {
-        return false;
+
+        if(size == objects.length)
+            doubleArraySize();
+
+        objects[size++] = o;
+
+        return true;
     }
 
     @Override
@@ -130,5 +133,22 @@ public class MyList<E> implements List, Iterable {
     @Override
     public Object[] toArray(Object[] a) {
         return new Object[0];
+    }
+
+    /*
+        PRIVATE METHODS
+     */
+
+    private void doubleArraySize() {
+
+        int newSize = 2 * size;
+        Object[] temp = new Object[newSize];
+
+        for (int i = 0; i < objects.length; i++) {
+            temp[i] = objects[i];
+        }
+
+        objects = temp;
+        size = newSize;
     }
 }
