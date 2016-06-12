@@ -102,12 +102,24 @@ public class MyList<E> implements List, Iterable {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+
+        for (int i = 0; i < size; i++) {
+            if(elements[i].equals(o))
+                return i;
+        }
+
+        return -1; // return -1 if element doesn't exist.
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+
+        for (int i = size; i >= 0 ; i--) {
+            if(elements[i].equals(o))
+                return i;
+        }
+
+        return -1; // return -1 if element doesn't exist.
     }
 
     @Override
