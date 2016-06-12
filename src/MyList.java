@@ -3,12 +3,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class MyList implements List, Iterable {
+public class MyList<E> implements List, Iterable {
 
+    private int size;
     private Object[] objects;
+    private static final int DEFAULT_CAP = 10;
 
     public MyList() {
-        System.out.println("MyList have been created");
+        objects = new Object[DEFAULT_CAP];
+    }
+
+    public MyList(int capacity) {
+        objects = new Object[capacity];
     }
 
     @Override
