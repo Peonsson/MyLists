@@ -3,15 +3,15 @@ import java.util.*;
 public class MyList<E> implements List, Iterable {
 
     private int size;
-    private Object[] elements;
+    private E[] elements;
     private static final int DEFAULT_CAPACITY = 10;
 
     public MyList() {
-        elements = new Object[DEFAULT_CAPACITY];
+        elements = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
     public MyList(int capacity) {
-        elements = new Object[capacity];
+        elements = (E[]) new Object[capacity];
     }
 
     @Override
@@ -52,7 +52,7 @@ public class MyList<E> implements List, Iterable {
         if(size == elements.length)
             doubleArraySize();
 
-        elements[size++] = o;
+        elements[size++] = (E) o;
 
         return true;
     }
@@ -62,15 +62,7 @@ public class MyList<E> implements List, Iterable {
         return false;
     }
 
-    @Override
-    public boolean addAll(Collection c) {
-        throw new UnsupportedOperationException();
-    }
 
-    @Override
-    public boolean addAll(int index, Collection c) {
-        throw new UnsupportedOperationException();
-    }
 
     @Override
     public void clear() {
@@ -100,7 +92,7 @@ public class MyList<E> implements List, Iterable {
         if(size == elements.length)
             doubleArraySize();
 
-        elements[index] = element;
+        elements[index] = (E) element;
     }
 
     @Override
@@ -134,16 +126,6 @@ public class MyList<E> implements List, Iterable {
     }
 
     @Override
-    public boolean retainAll(Collection c) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean removeAll(Collection c) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public boolean containsAll(Collection c) {
         return false;
     }
@@ -166,7 +148,31 @@ public class MyList<E> implements List, Iterable {
             temp[i] = elements[i];
         }
 
-        elements = temp;
+        elements = (E[]) temp;
         size = newSize;
+    }
+
+    /*
+        Unsupported methods
+     */
+
+    @Override
+    public boolean retainAll(Collection c) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean removeAll(Collection c) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean addAll(Collection c) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean addAll(int index, Collection c) {
+        throw new UnsupportedOperationException();
     }
 }

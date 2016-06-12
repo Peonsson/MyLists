@@ -5,9 +5,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MyList myList = new MyList();
+        MyList<Integer> myList = new MyList<>();
         System.out.println("myList size: " + myList.size());
-        myList.get(200);
-
+        myList.add(4);
+        myList.add(200);
+        myList.add(4);
+        System.out.println("myList size: " + myList.size());
     }
 }
