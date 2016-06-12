@@ -1,7 +1,5 @@
 import java.util.*;
 
-import static jdk.nashorn.internal.codegen.ObjectClassGenerator.pack;
-
 public class MyList<E> implements List, Iterable {
 
     private int size;
