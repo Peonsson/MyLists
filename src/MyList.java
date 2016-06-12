@@ -3,20 +3,20 @@ import java.util.*;
 public class MyList<E> implements List, Iterable {
 
     private int size;
-    private Object[] objects;
-    private static final int DEFAULT_CAP = 10;
+    private Object[] elements;
+    private static final int DEFAULT_CAPACITY = 10;
 
     public MyList() {
-        objects = new Object[DEFAULT_CAP];
+        elements = new Object[DEFAULT_CAPACITY];
     }
 
     public MyList(int capacity) {
-        objects = new Object[capacity];
+        elements = new Object[capacity];
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -42,10 +42,10 @@ public class MyList<E> implements List, Iterable {
     @Override
     public boolean add(Object o) {
 
-        if(size == objects.length)
+        if(size == elements.length)
             doubleArraySize();
 
-        objects[size++] = o;
+        elements[size++] = o;
 
         return true;
     }
@@ -72,7 +72,11 @@ public class MyList<E> implements List, Iterable {
 
     @Override
     public Object get(int index) {
-        return null;
+
+        if(index <= size)
+            return elements[index];
+
+        return new IndexOutOfBoundsException("Index is out of bounds!");
     }
 
     @Override
@@ -83,6 +87,13 @@ public class MyList<E> implements List, Iterable {
     @Override
     public void add(int index, Object element) {
 
+        if(index > size)
+            return;
+
+        if(size == elements.length)
+            doubleArraySize();
+
+        elements[index] = element;
     }
 
     @Override
@@ -144,11 +155,11 @@ public class MyList<E> implements List, Iterable {
         int newSize = 2 * size;
         Object[] temp = new Object[newSize];
 
-        for (int i = 0; i < objects.length; i++) {
-            temp[i] = objects[i];
+        for (int i = 0; i < elements.length; i++) {
+            temp[i] = elements[i];
         }
 
-        objects = temp;
+        elements = temp;
         size = newSize;
     }
 }
