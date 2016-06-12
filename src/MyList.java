@@ -74,8 +74,9 @@ public class MyList<E> implements List, Iterable {
     @Override
     public Object get(int index) {
 
-        if(index > size)
+        if(index > size ||  index < 0)
             throw new IndexOutOfBoundsException();
+
         if((index < 0) || (index > size - 1))
             return null; // is this correct?
 
@@ -85,7 +86,7 @@ public class MyList<E> implements List, Iterable {
     @Override
     public Object set(int index, Object element) {
 
-        if(index > size)
+        if(index > size ||  index < 0)
             throw new IndexOutOfBoundsException();
 
         E oldValue = null;
@@ -101,8 +102,8 @@ public class MyList<E> implements List, Iterable {
     @Override
     public void add(int index, Object element) {
 
-        if((index < 0) || (index > size - 1))
-            return;
+        if(index > size ||  index < 0)
+            throw new IndexOutOfBoundsException();
 
         if(size == elements.length)
             doubleArraySize();
@@ -113,7 +114,7 @@ public class MyList<E> implements List, Iterable {
     @Override
     public Object remove(int index) {
 
-        if(index > size)
+        if(index > size ||  index < 0)
             throw new IndexOutOfBoundsException();
 
         E removedValue = null;
