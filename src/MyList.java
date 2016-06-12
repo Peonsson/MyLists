@@ -21,11 +21,18 @@ public class MyList<E> implements List, Iterable {
 
     @Override
     public boolean isEmpty() {
+        if(size == 0)
+            return true;
         return false;
     }
 
     @Override
     public boolean contains(Object o) {
+
+        for (int i = 0; i < size; i++) {
+            if(elements.equals(o))
+                return true;
+        }
         return false;
     }
 
