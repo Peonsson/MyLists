@@ -103,7 +103,7 @@ public class MyList<E> implements List, Iterable {
     @Override
     public int indexOf(Object o) {
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i <= size; i++) {
             if(elements[i].equals(o))
                 return i;
         }
