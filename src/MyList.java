@@ -30,7 +30,7 @@ public class MyList<E> implements List, Iterable {
     public boolean contains(Object o) {
 
         for (int i = 0; i < size; i++) {
-            if(elements.equals(o))
+            if(elements[i].equals(o))
                 return true;
         }
         return false;
