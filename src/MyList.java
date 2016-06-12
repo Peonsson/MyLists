@@ -61,14 +61,19 @@ public class MyList<E> implements List, Iterable {
 
     @Override
     public boolean remove(Object o) {
+
+        for (int i = 0; i < size; i++) {
+            if(elements[i].equals(o)) {
+                remove(i);
+                return true;
+            }
+        }
         return false;
     }
 
-
-
     @Override
     public void clear() {
-
+        elements = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
     @Override
