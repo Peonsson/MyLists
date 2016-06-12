@@ -72,7 +72,7 @@ public class MyList<E> implements List, Iterable {
     @Override
     public Object get(int index) {
 
-        if(index > size)
+        if((index < 0) || (index > size - 1))
             return null; // is this correct?
 
         return elements[index];
@@ -94,7 +94,7 @@ public class MyList<E> implements List, Iterable {
     @Override
     public void add(int index, Object element) {
 
-        if(index > size)
+        if((index < 0) || (index > size - 1))
             return;
 
         if(size == elements.length)
