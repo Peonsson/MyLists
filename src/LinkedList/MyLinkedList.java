@@ -12,9 +12,11 @@ public class MyLinkedList implements List, Iterable  {
 
     private int size;
     private Node head;
+    private Node tail;
 
     public MyLinkedList() {
         head = new Node();
+        tail = new Node();
     }
 
     @Override
@@ -48,7 +50,12 @@ public class MyLinkedList implements List, Iterable  {
 
     @Override
     public boolean add(Object o) {
-        return false;
+
+        Node newNode = new Node(o);
+        tail.setNext(newNode);
+        tail = tail.getNext();
+
+        return true;
     }
 
     @Override
