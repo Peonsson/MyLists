@@ -1,16 +1,18 @@
+package VectorList;
+
 import java.util.*;
 
-public class MyList<E> implements List, Iterable {
+public class MyVectorList<E> implements List, Iterable {
 
     private int size;
     private E[] elements;
     private static final int DEFAULT_CAPACITY = 10;
 
-    public MyList() {
+    public MyVectorList() {
         elements = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
-    public MyList(int capacity) {
+    public MyVectorList(int capacity) {
         elements = (E[]) new Object[capacity];
     }
 

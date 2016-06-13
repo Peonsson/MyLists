@@ -1,3 +1,5 @@
+import VectorList.MyVectorList;
+
 /**
  * Created by Xsnud on 2016-06-12.
  */
@@ -5,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MyList<Integer> myList = new MyList<>();
+        MyVectorList<Integer> myList = new MyVectorList<>();
         System.out.println("myList size: " + myList.size());
         myList.add(4);
         myList.add(200);
