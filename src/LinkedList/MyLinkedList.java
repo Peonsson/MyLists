@@ -10,10 +10,16 @@ import java.util.ListIterator;
  */
 public class MyLinkedList implements List, Iterable  {
 
+    private int size;
+    private Node head;
+
+    public MyLinkedList() {
+        head = new Node();
+    }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
